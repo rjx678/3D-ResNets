@@ -3,9 +3,9 @@ import time
 from ResNet import ResNet_3D
 from utils1 import *
 import os
-from StaticModelCode import input_data_reads
+import input_data_reads
 
-rootPath = r'H:\newdatasets190708-\sportsDataSet023\SaveData'
+rootPath = r'################'
 os.chdir(rootPath)
 now = datetime.now()
 logs_path = "./graph50/" + now.strftime("%Y%m%d-%H%M%S")
@@ -56,7 +56,6 @@ with tf.Session() as sess:
             X_train, Y_train = train_images, train_labels
             _ = sess.run(model.train_op,feed_dict={model.x:X_train,model.y:Y_train,model.keep_prob:0.5})
 
-
             if step % display == 0:
                 feed_dict_batch = {model.x: X_train, model.y: Y_train, model.keep_prob: 1.0}
                 acc_b, loss_b = sess.run([model.accuracy, model.loss], feed_dict=feed_dict_batch)
@@ -84,7 +83,6 @@ with tf.Session() as sess:
                 acc_valid, loss_valid = sess.run([model.accuracy, model.loss], feed_dict=feed_dict_val)
                 acc_v_all = np.append(acc_v_all, acc_valid)
                 loss_v_all = np.append(loss_v_all,loss_valid)
-                # print(acc_v_all)
                 mean_v_acc=np.mean(acc_v_all)
                 mean_v_loss=np.mean(loss_v_all)
                 print("Step {0}, test mean acc: {1:.05%}".format(step,mean_v_acc))
