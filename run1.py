@@ -107,6 +107,6 @@ with tf.Session() as sess:
                     improved_str = ''
 
                 sum_count += 1
-                # acc_b_all =loss_b_all=  mean_acc = mean_loss = y_pred_all = y_true_all = np.array([])
+               
 
-print((time.time()-starttime)/3600)# 18 6.97hour
+print((time.time()-starttime)/3600)
