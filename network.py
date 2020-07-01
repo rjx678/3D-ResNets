@@ -814,5 +814,5 @@ def create_network101(X, h, keep_prob, numClasses):
     print('--------FC1-----------')
     print(net.get_shape())
     print('---------------------')
-    net = dropout(net, keep_prob)
+    
     return net
